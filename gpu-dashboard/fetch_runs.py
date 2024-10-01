@@ -262,6 +262,8 @@ def query_runs(
         world_size = get_world_size(run_path=run_path)
         if distributed_learning and world_size > 0:
             gpu_count = world_size
+        elif team == "turing-geniac" and dt.date(2024, 6, 14) < createdAt.date() < dt.date(2024, 7, 4):
+            gpu_count = 96
         else:
             gpu_count = node.runInfo.gpuCount
 
